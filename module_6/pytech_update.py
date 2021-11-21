@@ -1,7 +1,7 @@
 '''
 Name: Charles Fisher
 Date: 21 November 2021
-Assignment name: Collection Queries
+Assignment name: Updating Documents
 Purpose: Create a program to update data in the MongoDB database
 Sources: Matthes, E. 2019. Python Crash Course 2nd Edition, “A Hands-On, Project-Based Introduction To Programming. No Starch Press, Inc. San Francisco, CA. 
          MongoDB Tutorial | Studytonight. (2021). Www.studytonight.com; Studytonight Technologies Pvt. Ltd. https://www.studytonight.com/mongodb/
