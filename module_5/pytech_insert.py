@@ -108,10 +108,10 @@ thorin_student_id = students.insert_one(thorin).inserted_id
 print("Inserted student record Thorin Oakenshield into the students collection with document_id " + str(thorin_student_id))
 
 bilbo_student_id = students.insert_one(bilbo).inserted_id
-print("Inserted student record Bilbo Baggins into the students collection with document_id " + str(thorin_student_id))
+print("Inserted student record Bilbo Baggins into the students collection with document_id " + str(bilbo_student_id))
 
 frodo_student_id = students.insert_one(frodo).inserted_id
-print("Inserted student record Frodo Baggins into the students collection with document_id " + str(thorin_student_id))
+print("Inserted student record Frodo Baggins into the students collection with document_id " + str(frodo_student_id))
 
 print("End of program, press Enter to exit... ")
 input() #flag to exit 
