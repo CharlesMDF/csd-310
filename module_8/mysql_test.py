@@ -18,6 +18,7 @@ config = {
     "raise_on_warnings" : True
 }
 
+#establish connection to database
 try:
     db = mysql.connector.connect(**config)
     print("\n Database user {} connected to MySQL on host {} with database {}".format(config["user"], config["host"], config["database"]))
