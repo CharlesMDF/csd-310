@@ -9,10 +9,10 @@ Sources: Forta, B. (2018). SQL in 10 Minutes a Day, Sams Teach Yourself. Pearson
 -- drop user if exists 
 DROP USER IF EXISTS 'whatabook_user'@'localhost';
 
--- create pysports_user and grant them all privileges to the pysports database 
+-- create whatabook_user and grant them all privileges to the whatabook database 
 CREATE USER 'whatabook_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MySQL8IsGreat!';
 
--- grant all privileges to the pysports database to user pysports_user on localhost 
+-- grant all privileges to the whatabook database to user whatabook_user on localhost 
 GRANT ALL PRIVILEGES ON whatabook.* TO'whatabook_user'@'localhost';
 
 
