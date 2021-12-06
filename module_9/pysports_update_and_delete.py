@@ -4,7 +4,8 @@ Date: 5 December 2021
 Assignment name: PySports: Update & Deletes
 Purpose: Create a program to update and delete records from a MySQL database.
 Sources: Matthes, E. 2019. Python Crash Course 2nd Edition, “A Hands-On, Project-Based Introduction To Programming. No Starch Press, Inc. San Francisco, CA. 
-         MongoDB Tutorial | Studytonight. (2021). Www.studytonight.com; Studytonight Technologies Pvt. Ltd. https://www.studytonight.com/mongodb/
+         Forta, B. (2018). SQL in 10 Minutes a Day, Sams Teach Yourself. Pearson Education (Us.
+‌
 '''
 import mysql.connector
 from mysql.connector import errorcode
