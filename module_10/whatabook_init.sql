@@ -6,23 +6,23 @@ Purpose: whatabook initialization script
 Sources: Forta, B. (2018). SQL in 10 Minutes a Day, Sams Teach Yourself. Pearson Education (Us.
 */
 
--- drop user if exists 
+/*drop user if exists*/ 
 DROP USER IF EXISTS 'whatabook_user'@'localhost';
 
--- create whatabook_user and grant them all privileges to the whatabook database 
+/* create whatabook_user and grant them all privileges to the whatabook database */ 
 CREATE USER 'whatabook_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'MySQL8IsGreat!';
 
--- grant all privileges to the whatabook database to user whatabook_user on localhost 
+/* grant all privileges to the whatabook database to user whatabook_user on localhost */ 
 GRANT ALL PRIVILEGES ON whatabook.* TO'whatabook_user'@'localhost';
 
 
--- drop tables if they are present
+/* drop tables if they are present */
 DROP TABLE IF EXISTS wishlist;
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS book;
 DROP TABLE IF EXISTS store;
 
---create user table
+/* create user table */
 CREATE TABLE user
 (
     user_id     INT             NOT NULL        AUTO_INCREMENT,
@@ -31,7 +31,7 @@ CREATE TABLE user
     PRIMARY KEY(user_id)
 );
 
---create book table 
+/* create book table */
 CREATE TABLE book
 (
     book_id     INT             NOT NULL        AUTO_INCREMENT,
@@ -41,7 +41,7 @@ CREATE TABLE book
     PRIMARY KEY(book_id)
 );
 
---create wishlist table
+/* create wishlist table */
 CREATE TABLE wishlist
 (
 wishlist_id     INT           NOT NULL       AUTO_INCREMENT,
@@ -52,20 +52,21 @@ CONSTRAINT fk_user     FOREIGN KEY(user_id)     REFERENCES user(user_id),
 CONSTRAINT fk_book     FOREIGN KEY(book_id)     REFERENCES book(book_id)
 );
 
---create store table
+/* create store table */
 CREATE TABLE store
 (
     store_id    INT                 NOT NULL,
     locale      VARCHAR (500)       NOT NULL,
+    openHours   VARCHAR (100)       NOT NULL,
     PRIMARY KEY(store_id)
 );
 
 
---insert store records
-INSERT INTO store(store_id, locale)
-    VALUES(1, '1000 Galvin Rd S, Bellevue, NE 68005');
+/* insert store records */
+INSERT INTO store(store_id, locale, openHours)
+    VALUES(1, '1000 Galvin Rd S, Bellevue, NE 68005', '9am to 9pm');
 
---insert book records
+/* insert book records */
 INSERT INTO book(book_name, author, details)
     VALUES('SQL in 10 Minutes a Day, Sams Teach Yourself', 'Ben Forta', 'Whether you are an application developer, database administrator, web application designer, mobile app developer, or Microsoft Office users, a good working knowledge of SQL is an important part of interacting with databases.');
 
@@ -93,7 +94,7 @@ INSERT INTO book(book_name, author, details)
 INSERT INTO book(book_name, author, details)
     VALUES('Hands-On Data Structures and Algorithms with Kotlin', 'Chandra Sekhar Nayak', "Level up your programming skills by understanding how Kotlin's data structure works");
 
---insert user records
+/* insert user records */
 INSERT INTO user(first_name, last_name)
     VALUES('Thorin', 'Oakenshield');
 
@@ -103,7 +104,7 @@ INSERT INTO user(first_name, last_name)
 INSERT INTO user(first_name, last_name)
     VALUES('Frodo', 'Baggins');
 
---insert wishlist records
+/* insert wishlist records */
 INSERT INTO wishlist(user_id, book_id)
     VALUES((SELECT user_id FROM user WHERE user_id = 1), (SELECT book_id FROM book WHERE book_id = 1));
 
