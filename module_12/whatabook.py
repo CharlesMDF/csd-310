@@ -5,6 +5,7 @@ Assignment name: WhatABook
 Purpose: Create a program for users to access the WhatABook Database and modify their accounts
 Sources: Matthes, E. 2019. Python Crash Course 2nd Edition, “A Hands-On, Project-Based Introduction To Programming. No Starch Press, Inc. San Francisco, CA. 
          Forta, B. (2018). SQL in 10 Minutes a Day, Sams Teach Yourself. Pearson Education (Us.
+         Python Tutorial. (2019). W3schools.com. https://www.w3schools.com/python/default.asp
 '''
 from dns.rdatatype import NULL
 import mysql.connector
