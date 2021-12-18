@@ -64,10 +64,15 @@ def add_book(cursor, userID):
     
     #get book ID with error checking
     try:
-        enteredID = int(input("\nPlease enter the ID of the book you would like to add: "))
+        enteredID = int(input("\nPlease enter the ID of the book you would like to add or enter 0 to cancel: "))
     #return if a non number is entered
     except ValueError:
-        print("Invalid Book. Returning to Account Menu")
+        print("Invalid Book ID. Returning to Account Menu")
+        return
+    
+    #cancel operation if 0 is entered
+    if enteredID == 0:
+        print("Operation Canceled. Returning to Account Menu\n")
         return
     
     #flag for if book is found
@@ -79,6 +84,7 @@ def add_book(cursor, userID):
             cursor.execute("INSERT INTO wishlist(user_id, book_id) VALUES((SELECT user_id FROM user WHERE user_id = {}), (SELECT book_id FROM book WHERE book_id = {}))".format(userID, book[0]))
             bookIsValid = True
             print("\"{}\" Successfully added to Wishlist\n".format(book[1]))
+    
     #Send Error if an invalid book was selected
     if not bookIsValid:
         print("Invalid Book ID. Returning to Account Menu\n")
@@ -106,28 +112,29 @@ def access_account(cursor):
     if(len(user) == 0):
         print("Invalid User ID. Returning to Main Menu")
         return
-    print("User ID Valid\n")
+    print("Valid User ID Entered")
+    
     while(1):
-	#Account menu
+	    #Account menu
         print("\nAccount Menu:"
             "\n1. View Wishlist"
             "\n2. Add Book to Wishlist"
             "\n3. Main Menu")
         selection = input("\nPlease input the number for your chosen action: ")
-        if (selection == "1"):
+        
+        if (selection == "1"):#View Wishlist
             show_wishlist(cursor, enteredID)
         
-        elif(selection == "2"):
+        elif(selection == "2"):#Add Book to Wishlist
             add_book(cursor, enteredID)
 
-        elif(selection == "3"):
+        elif(selection == "3"):#exit to main menu
             return
 
         else:
             print("\nInvalid input. Please select from the following options:")
 
 #Program Start
-
 #user configuration
 config = {
     "user": "whatabook_user",
